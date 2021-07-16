@@ -1,82 +1,33 @@
-<header class="parallax d-flex align-items-center" id="inicio">
-    <div class="container px-4 px-lg-5 text-center">
-        <h1 class="mb-1 text-white">Informacion Component</h1>
-        <h3 class="mb-5 text-white"><em>Componente para mas informacion</em></h3>
-        <button mat-raised-button color="accent" (click)="inicio()">inicio</button>
-    </div>
-</header>
-<div class="row">
-    <mat-card class="container my-5 col-5">
-        <mat-card-title>Contacto</mat-card-title>
-        <mat-card-content>
-            <h3>Nombre</h3>
-            <mat-form-field appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input matInput>
-            </mat-form-field>
-            <h3>Email</h3>
-            <mat-form-field appearance="fill">
-                <mat-label>Enter your email</mat-label>
-                <input matInput placeholder="pat@example.com" [formControl]="email" required>
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-            <h3>Mensaje</h3>
-            <mat-form-field appearance="fill">
-                <mat-label>Textarea</mat-label>
-                <textarea matInput></textarea>
-            </mat-form-field>
-            <h3>Password</h3>
-            <mat-form-field appearance="fill">
-                <mat-label>Enter your password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'">
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                    [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
-            </mat-form-field>
-        </mat-card-content>
-    </mat-card>
+<div class="container my-4">
+    <div class="row">
 
-    <mat-card class="container my-5 col-5">
-        <mat-card-title>Stepper</mat-card-title>
-        <mat-card-content>
-            <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-                {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-            </button>
-            <mat-stepper [linear]="isLinear" #stepper>
-                <mat-step [stepControl]="firstFormGroup">
-                    <form [formGroup]="firstFormGroup">
-                        <ng-template matStepLabel>Fill out your name</ng-template>
-                        <mat-form-field appearance="fill">
-                            <mat-label>Name</mat-label>
-                            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-                        </mat-form-field>
-                        <div>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
-                </mat-step>
-                <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
-                    <form [formGroup]="secondFormGroup">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Address</mat-label>
-                            <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY" required>
-                        </mat-form-field>
-                        <div>
-                            <button mat-button matStepperPrevious>Back</button>
-                            <button mat-button matStepperNext>Next</button>
-                        </div>
-                    </form>
-                </mat-step>
-                <mat-step>
-                    <ng-template matStepLabel>Done</ng-template>
-                    <p>You are now done.</p>
-                    <div>
-                        <button mat-button matStepperPrevious>Back</button>
-                        <button mat-button (click)="stepper.reset()">Reset</button>
-                    </div>
-                </mat-step>
-            </mat-stepper>
-        </mat-card-content>
-    </mat-card>
+        <mat-card class="example-card col-3">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image
+                src="https://storage.googleapis.com/mmc-elcaribe-bucket/uploads/2021/06/213965b5-dogs_1280p_0-60ba19d1d2c8c.jpg"
+                alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+
+
+        <div class="col-9">
+            <button mat-button (click)="verInicio()">Ver Inicio</button>
+            <button mat-button (click)="crear()">Crear Token</button>
+            <button mat-button (click)="eliminar()">Eliminar Token</button>
+        </div>
+    </div>
 </div>
